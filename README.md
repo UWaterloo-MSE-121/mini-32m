@@ -49,9 +49,9 @@ Each line can be split on tabs:
 
 ```python
 with open("ratings.tsv", encoding="utf-8") as f:
-    header = f.readline().strip().split("\t")
+    header = f.readline().removesuffix("\n").split("\t")
     for line in f:
-        user_id, movie_id, rating, timestamp = line.strip().split("\t")
+        user_id, movie_id, rating, timestamp = line.removesuffix("\n").split("\t")
 ```
 
 If you use the `csv` module or pandas instead, turn off quote
