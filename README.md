@@ -1,4 +1,4 @@
-# A Small Subset of MovieLens 32M for MSE 121 (tab-separated, original ids)
+# A Small Subset of MovieLens 32M for MSE 121 (tab-separated)
 
 This dataset is a subset of the much larger MovieLens 32M dataset:
 https://grouplens.org/datasets/movielens/32m/
@@ -10,11 +10,7 @@ research, and it cannot be used to say anything about the original
 dataset.
 
 > **Note: `movie_id` and `user_id` are the original MovieLens ids.**
-> They are the same numbers as in MovieLens 32M and in the older
-> `mini-32m` dataset.  They are NOT contiguous and do NOT start at 0,
-> so they cannot be used directly as list or array indexes.  The
-> [`mini-32m-tsv`](https://github.com/UWaterloo-MSE-121/datasets/tree/main/mini-32m-tsv) dataset holds the same
-> data with ids renumbered from 0 to N-1.
+> They are the same numbers as in MovieLens 32M.
 
 ## Files
 
@@ -72,10 +68,6 @@ movies = pd.read_csv("movies.tsv", sep="\t", quoting=csv.QUOTE_NONE)
 
 ## Things to watch out for
 
-- **Ids are not array indexes.**  The largest `movie_id` is 292,753
-  but there are only 23,136 movies.  Use a dictionary keyed by id, or
-  use the [`mini-32m-tsv`](https://github.com/UWaterloo-MSE-121/datasets/tree/main/mini-32m-tsv) dataset, which
-  has the same data with ids renumbered from 0.
 - **Titles are not unique.**  48 titles appear under more than one
   `movie_id`, for example *War of the Worlds (2005)*.  Use `movie_id`,
   not `title`, to identify a movie.
@@ -99,15 +91,6 @@ by [`convert.py`](https://github.com/UWaterloo-MSE-121/datasets/blob/main/mini-3
 - Spaces at the start or end of titles were removed (30 titles).
 
 `movie_id` and `user_id` are unchanged from `mini-32m`.
-
-## Differences from mini-32m-tsv
-
-The only difference is the ids.
-[`mini-32m-tsv`](https://github.com/UWaterloo-MSE-121/datasets/tree/main/mini-32m-tsv) renumbers `movie_id`
-and `user_id` from 0 to N-1 and keeps the original movie id in an
-extra `ml_movie_id` column of `links.tsv`.  This dataset keeps the
-original ids everywhere and has no `ml_movie_id` column.  The rows of
-every file are in the same order in both datasets.
 
 ## Citation
 
