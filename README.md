@@ -80,7 +80,7 @@ movies = pd.read_csv("movies.tsv", sep="\t", quoting=csv.QUOTE_NONE)
 
 This dataset was made from the comma-separated
 [`mini-32m`](https://github.com/UWaterloo-MSE-121/datasets/tree/main/mini-32m) in the MSE 121 datasets repository
-by [`convert.py`](https://github.com/UWaterloo-MSE-121/datasets/blob/main/mini-32m-tsv/convert.py) with the
+by [`convert.py`](https://github.com/UWaterloo-MSE-121/datasets/blob/main/mini-32m-z/convert.py) with the
 `--keep-ids` option:
 
 - The files are tab-separated instead of comma-separated, and column
